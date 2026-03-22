@@ -74,16 +74,28 @@
     radial-gradient(circle at 80% 20%, rgba(212, 185, 140, 0.06) 0%, transparent 40%);
 }
 
-[data-theme="dark"] .hero-title {
-  color: var(--color-clay);
+/* Dark mode hero: flat, stark, stripped back */
+.hero-dark .hero-title {
+  font-family: var(--font-body);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #ccc;
+}
+
+.hero-dark .hero-subtitle {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-style: normal;
+  text-transform: lowercase;
+  letter-spacing: 0.15em;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  color: #999;
 }
 
 [data-theme="dark"] .hero-eyebrow {
   color: rgba(212, 185, 140, 0.6);
-}
-
-[data-theme="dark"] .hero-subtitle {
-  color: var(--color-sage-light);
 }
 
 [data-theme="dark"] .hero-description {

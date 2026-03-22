@@ -8,11 +8,19 @@
   var body = document.body;
   var html = document.documentElement;
 
-  // Motto elements that change in dark mode
+  // Hero elements that change in dark mode
+  var heroTitle = document.querySelector('.hero-title');
   var heroSubtitle = document.querySelector('.hero-subtitle');
+  var heroEyebrow = document.querySelector('.hero-eyebrow');
+  var heroDescription = document.querySelector('.hero-description');
   var footerTagline = document.querySelector('.footer-brand p');
+
+  var LIGHT_TITLE = 'Chi-Lates';
+  var DARK_TITLE = 'Chi-Lates';
   var LIGHT_MOTTO = 'Where East Meets West in Mindful Movement';
-  var DARK_MOTTO = 'Because You Die';
+  var DARK_MOTTO = 'because you will die one day';
+  var LIGHT_EYEBROW_HTML = 'Qigong \u2022 Tai Chi Flow \u2022 Pilates';
+  var LIGHT_DESCRIPTION = "A one-of-a-kind fusion blending the grounding flow of Qigong, the core strength of mat Pilates, and the grace of Tai Chi Flow. You won\u2019t find this class anywhere else.";
 
   // Check for saved preference
   var savedTheme = localStorage.getItem('chi-lates-theme');
@@ -62,11 +70,20 @@
   }
 
   function setMotto(theme) {
-    if (heroSubtitle) {
-      heroSubtitle.textContent = theme === 'dark' ? DARK_MOTTO : LIGHT_MOTTO;
-    }
-    if (footerTagline) {
-      footerTagline.textContent = theme === 'dark' ? DARK_MOTTO + '.' : 'Where East meets West in mindful movement.';
+    if (theme === 'dark') {
+      if (heroEyebrow) heroEyebrow.style.display = 'none';
+      if (heroTitle) heroTitle.textContent = DARK_TITLE;
+      if (heroSubtitle) heroSubtitle.textContent = DARK_MOTTO;
+      if (heroDescription) heroDescription.style.display = 'none';
+      if (footerTagline) footerTagline.textContent = DARK_MOTTO + '.';
+      document.querySelector('.hero-content').classList.add('hero-dark');
+    } else {
+      if (heroEyebrow) { heroEyebrow.style.display = ''; heroEyebrow.textContent = LIGHT_EYEBROW_HTML; }
+      if (heroTitle) heroTitle.textContent = LIGHT_TITLE;
+      if (heroSubtitle) heroSubtitle.textContent = LIGHT_MOTTO;
+      if (heroDescription) { heroDescription.style.display = ''; heroDescription.textContent = LIGHT_DESCRIPTION; }
+      if (footerTagline) footerTagline.textContent = 'Where East meets West in mindful movement.';
+      document.querySelector('.hero-content').classList.remove('hero-dark');
     }
   }
 
