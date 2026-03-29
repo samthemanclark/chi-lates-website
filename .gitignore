@@ -1,0 +1,27 @@
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+*.enc
+client_secret_*.json
+
+# Cloudflare
+.wrangler/
+
+# Node
+node_modules/
+dist/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Spreadsheets
+*.xlsx
+
+# Log files
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
