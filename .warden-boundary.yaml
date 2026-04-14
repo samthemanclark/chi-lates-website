@@ -1,0 +1,29 @@
+schema_version: "1.0"
+repo_id: chilates
+purpose: "Chilates Pilates — external client website project"
+group: business
+
+owns:
+  - "src/**"
+  - "public/**"
+  - "CLAUDE.md"
+
+does_not_own:
+  - "Warden OS system files"
+  - "Other client data"
+  - "Internal business data"
+
+escalation_triggers:
+  - pattern: ".claude/**"
+    reason: "Claude configuration changes require OS hub approval"
+  - pattern: ".warden-boundary.yaml"
+    reason: "Boundary definition changes require OS hub approval"
+
+normal_task_shapes:
+  - "Website updates"
+  - "Content changes"
+  - "Design modifications"
+
+default_sensitivity: internal
+escalation_target: wardenos
+guidance: "Chilates is an external client project. Keep work scoped to this site only."
